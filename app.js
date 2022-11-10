@@ -43,6 +43,21 @@ let attack =()=>{
     earthAttack(myShip1,alienArray);
 }
 
+let alienAttack = (earthShip1,alienShip1) =>{
+    let earthHullLeft1 = earthShip1.hull-alienShip1.firepower;
+    alert(`Alien Ship is attacking Earth's ship and Earth's Ship has hull of ${earthHullLeft1} now.`);
+   
+       if(earthHullLeft1<=0){
+            alert(`Earth's Ship is destroyed and you lost the game.`);
+            alienShipArray1 = [];
+        }
+        else{
+         earthShip1.hull= earthHullLeft1;
+         alert("Earth Ship is attacking Alien Ship now!");
+        
+        }
+}
+
 let earthAttack = (earthShip,alienShipArray) => {
     
  
@@ -90,21 +105,17 @@ let earthAttack = (earthShip,alienShipArray) => {
      
         else{
             //Alien Ship attacking Earth's Ship
-            let earthHullLeft = earthShip.hull-alienShipArray[i].firepower;
-           alert(`Alien Ship is attacking Earth's ship and Earth's Ship has hull of ${earthHullLeft} now.`);
-          
-              if(earthHullLeft<=0){
-                   alert(`Earth's Ship is destroyed and you lost the game.`);
-                   alienShipArray = [];
-               }
-               else{
-                earthShip.hull= earthHullLeft;
-                alert("Earth Ship is attacking Alien Ship now!");
-               
-               }
+            alienAttack(earthShip,alienShipArray[i]);
+        
 
            }
      } 
+
+     else{
+        //Alien Ship attacking Earth's Ship
+        alienAttack(earthShip,alienShipArray[i]);
+    
+       }
     }
 };
 
