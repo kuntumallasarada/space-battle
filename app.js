@@ -49,7 +49,7 @@ let alienAttack = (earthShip1,alienShip1) =>{
    
        if(earthHullLeft1<=0){
             alert(`Earth's Ship is destroyed and you lost the game.`);
-            alienShipArray1 = [];
+            alienArray = [];
         }
         else{
          earthShip1.hull= earthHullLeft1;
